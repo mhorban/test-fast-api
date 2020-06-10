@@ -1,0 +1,25 @@
+server:
+  host: 127.0.0.1
+  port: 9000
+
+db:
+  name: test_fast_api
+  host: localhost
+  port: 27017
+
+log:
+  version: 1
+  formatters:
+    default:
+      format: "%(asctime)-15s %(process)d %(name)-4s %(levelname)-4s %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: default
+      stream: ext://sys.stdout
+  root:
+    handlers:
+      - console
+    level: DEBUG
+    propagate: true
